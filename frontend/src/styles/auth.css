@@ -1,0 +1,143 @@
+.auth-shell,
+.access-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 18px;
+  background: var(--canvas);
+}
+
+.auth-card,
+.access-card {
+  width: min(100%, 450px);
+  padding: 34px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 20px 56px rgb(30 48 35 / 10%);
+}
+
+.auth-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.auth-brand img {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+}
+
+.auth-intro { margin: 31px 0 22px; }
+.auth-intro h1, .access-card h1 { margin: 0; color: var(--ink); font-size: 25px; font-weight: 700; }
+.auth-intro p, .access-copy { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 22px;
+  background: var(--surface-soft);
+  border-radius: 12px;
+}
+
+.auth-tabs button {
+  min-height: 38px;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.auth-tabs button.selected {
+  color: var(--green);
+  background: var(--surface);
+  box-shadow: 0 2px 9px rgb(30 48 35 / 8%);
+}
+
+.auth-form { display: grid; }
+.auth-label { margin: 0 0 7px; color: var(--ink); font-size: 11px; font-weight: 700; }
+.auth-input { width: 100%; height: 44px; padding: 0 12px; margin-bottom: 16px; color: var(--ink); background: var(--surface-soft); border: 0; border-radius: 10px; outline: 0; font: 500 12px Manrope, sans-serif; }
+.auth-input:focus { box-shadow: 0 0 0 2px #a8c2ac; }
+.auth-input::placeholder { color: #8b968e; }
+.auth-select { cursor: pointer; }
+
+.manager-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px 12px;
+  margin: 0 0 15px;
+  color: #68552f;
+  background: #f6f0e3;
+  border-radius: 10px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.manager-note svg { flex: 0 0 auto; }
+
+.auth-error {
+  padding: 10px 12px;
+  margin: 0 0 14px;
+  color: #9e4034;
+  background: #faece8;
+  border-radius: 9px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.auth-submit,
+.auth-secondary-button {
+  min-height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 16px;
+  color: white;
+  background: var(--green);
+  border: 0;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-submit:hover, .auth-secondary-button:hover { filter: brightness(0.94); }
+.auth-submit:disabled { cursor: wait; opacity: 0.7; }
+.auth-spinner { animation: auth-spin 900ms linear infinite; }
+.auth-footnote { margin: 18px 0 0; color: var(--muted); text-align: center; font-size: 10px; }
+
+.access-card { text-align: left; }
+.access-kicker { margin: 34px 0 8px; color: var(--muted); font-size: 11px; font-weight: 600; }
+.access-card h1 { max-width: 350px; line-height: 1.25; }
+.access-copy { margin: 12px 0 24px; }
+.auth-secondary-button { color: var(--green); background: var(--green-soft); }
+
+.auth-loading { min-height: 100vh; display: grid; place-items: center; background: var(--canvas); }
+.auth-loading span { width: 32px; height: 32px; border: 3px solid var(--line); border-top-color: var(--green); border-radius: 50%; animation: auth-spin 800ms linear infinite; }
+
+@keyframes auth-spin { to { transform: rotate(360deg); } }
+
+:root[data-theme='dark'] .auth-card,
+:root[data-theme='dark'] .access-card { background: var(--surface); border-color: var(--line); box-shadow: 0 20px 56px rgb(0 0 0 / 20%); }
+:root[data-theme='dark'] .auth-tabs button.selected { color: var(--ink); background: #364238; box-shadow: none; }
+:root[data-theme='dark'] .auth-input { color: var(--ink); background: var(--surface-soft); }
+:root[data-theme='dark'] .auth-input::placeholder { color: #a2ada4; }
+:root[data-theme='dark'] .manager-note { color: #ead8ad; background: #393426; }
+:root[data-theme='dark'] .auth-error { color: #f2b7ac; background: #422d2a; }
+:root[data-theme='dark'] .auth-secondary-button { color: #dce9da; background: #2d3e32; }
+
+@media (max-width: 480px) {
+  .auth-card, .access-card { padding: 26px 22px; border-radius: 18px; }
+  .auth-intro { margin-top: 27px; }
+}
